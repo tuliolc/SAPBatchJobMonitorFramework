@@ -322,6 +322,61 @@ CLASS ZCL_API_UTILITY IMPLEMENTATION.
 ENDCLASS.
 ```
 
+### **Step 6: Config External API endpoint details**
+
+#### **SE80: OAuth 2.0 Client Profile**
+Create OAuth 2.0 Profile, in case it is required.
+1. Start object navigator in SE80.
+2. Choose Development Object in the dropdown list.
+3. To create a development object click with right mouse button, choose Create -> OAuth 2.0 Client Profile in the context menu of object name.
+   
+![image](https://github.com/user-attachments/assets/57a5cb12-0818-4c76-af4b-6b7e0eadae21)
+
+5. Enter the object name in the Client Profile field of the popup as 'Z_AWS_PROFILE' (or any choice).
+6. Choose the type of service provider as 'DEFAULT'.
+   
+![image](https://github.com/user-attachments/assets/f4214112-7271-42e8-ad97-5e3ba2215e65)
+
+7. Also provide the scope as provided by AWS config.\
+   
+![image](https://github.com/user-attachments/assets/9e634ee5-25c7-4aae-9fcf-efa913848249)
+
+#### **OAuth 2.0 Profile Config**
+OAuth 2.0 Profile.
+1. Go to transaction OA2C_CONFIG to configure the OAUTH 2.0.
+2. Click on 'Create'.
+3. Select the OAuth 2.0 Client Profile as 'Z_AWS' and provide the Client ID (can be any choice).
+   
+![image](https://github.com/user-attachments/assets/c66d1788-923b-48f8-bc0c-752882bdef04)
+
+5. Maintain the Client Secret.
+6. Also provide the Token Endpoint generate in AWS API Endpoint config.
+   
+![image](https://github.com/user-attachments/assets/03d2f10d-f2fd-40b2-98a5-6fc90767931f)
+
+8. Enter the Client Authentication according to the required ones from AWS
+   Example:
+
+![image](https://github.com/user-attachments/assets/90dc0ed7-2e01-4ac1-b6c8-3ae82dcd5ab0)
+
+10. Save the changes.
+
+#### **RFC Config**
+Create RFC Destination.
+1. Go to TCODE SM59 to config OAuth 2.0.
+2. Click on 'Create'.
+3. Enter 'Z_AWS' (can be any choice) as Destination.
+4. Enter the host provided by AWS team members.
+5. Also provide the path prefix, if required.
+   
+![image](https://github.com/user-attachments/assets/ba5e40c5-b4db-4bbb-868d-84844a43b0ef)
+
+7. In the 'Logon & Security' tab:
+   a) Click in 'OAuth Setting' button and enter the values as configured in OAuth 2.0 Client.
+   b) Select the correct 'Security Options'.
+
+![image](https://github.com/user-attachments/assets/8d917d6c-93a4-4470-8feb-460adc20629e)
+
 ---
 
 ## **Quality Assurance**
@@ -365,7 +420,7 @@ ENDCLASS.
 This framework provides a robust foundation for proactive batch job monitoring in SAP. Its modular design ensures ease of extension, while integration with AWS enables centralized monitoring for enhanced operational integrity.
 
 ## **MindMap**
-![image](https://github.com/user-attachments/assets/dc717962-edf9-40fc-a69b-afe1b0ceb4f5)
+![image](https://github.com/user-attachments/assets/17e77287-6310-419e-9f91-23e21a3f5845)
 
 -> **Relevant information:** SQL operations on the TBTCO table are prohibited because it is classified as one of the 20 most critical base tables in SAP S/4HANA. Direct manipulation of its contents is not allowed due to its importance in the system.
 Source: https://xiting.com/en/the-top-20-sap-it-base-tables-with-special-protection-requirements-in-sap-s4hana/ 
